@@ -1,0 +1,274 @@
+@-webkit-keyframes notesScroll {
+from {background-position: 0 0;}
+to {background-position: -1000px 0;}
+}
+
+@keyframes notesScroll {
+from {background-position: 0 0;}
+to {background-position: -1000px 0;}
+}
+@keyframes verticalmove {
+    0% {top: 0;}
+    50% {top: 75px;}
+}
+
+@keyframes horizontalmove {
+    0% {left: 0;}
+    50% {left: 100px;}
+}
+
+@keyframes diagonalmove {
+    0% {right: 0; top: 0;}
+    50% {right: 75px; top: 75px;}
+}
+
+@font-face {
+	font-family: Phosphate;
+	src: url(ufonts.com_phosphatesolid.woff);
+}
+
+@font-face {
+	font-family: Brandon;
+	src: url(Brandon_med.otf) format("opentype");
+}
+
+@mixin container {
+	height: 100%; 
+	width: 100%;
+}
+
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+#container {
+ @include container;
+ padding-bottom: 150px;
+}
+
+.nav-text {
+	a {
+		font-family: 'Brandon', sans-serif;
+		font-size: 18px;
+		color: white;
+	}
+}
+
+.navbar--hover1 {
+	color: #610036;
+}
+
+.navbar--hover2 {
+	color: #D8007A;
+}
+
+.nav.navbar-nav.nav--container>li>a:hover {
+	background-color: transparent;
+}
+
+#nav--container {
+	padding-right: 10px;
+}
+
+.main-container {
+	margin-top: -25px;
+	//margin-bottom: 150px;
+	height: 120vh;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	background: -webkit-linear-gradient(#D8007A, #610036);
+  	background: -o-linear-gradient(#D8007A, #610036);
+  	background: -moz-linear-gradient(#D8007A, #610036);
+  	background: linear-gradient(#D8007A, #610036);
+
+}
+
+#app-title {
+	max-width: 50%;
+	position: relative;
+	text-align: center;
+	color: white;
+	word-wrap: break-word;
+	top: 30vh;
+
+	h4 {
+		font-family: 'Phosphate', sans-serif;
+		letter-spacing: 5px;
+		font-size: 120px;
+		margin-bottom: 0;
+		line-height: 120px;
+	}
+
+	span {
+		font-family: 'Brandon', sans-serif;
+		font-size: 25px;
+		letter-spacing: 2px;
+		position: relative;
+		top: -35px;
+	}
+}
+
+#watchband-logo {
+	width: 50%;
+	position: absolute;
+	top: 30%;
+	right: 0;
+}
+
+#moving-notes{
+
+  	background-position: 0px 0px;
+	background-repeat: repeat-x;
+	background-image: url('notes.png');
+	background-size: cover;
+
+	animation: notesScroll 20s linear infinite;
+	-webkit-animation: notesScroll 20s linear infinite;
+	-moz-animation: notesScroll 20s linear infinite;
+	-ms-animation: notesScroll 20s linear infinite;
+
+	width: 100%;
+	height: 250px;
+	position: absolute;
+	right: 0;
+	bottom: 20vh;
+	z-index: 2;
+}
+
+.how-it-works {
+	padding-top: 150px;
+	padding-bottom: 100px;
+	height: 100%;
+
+	.steps-container {
+	height: 100vh;
+	text-align: center;
+		h1 {
+			font-family: 'Brandon', sans-serif;
+			font-size: 25px;
+			margin-bottom: 30px;
+		}
+	}
+
+	#app--desc {
+		text-align: center;
+		max-width: 600px;
+		font-family: 'Josefin Slab', serif;
+		font-size: 18px;
+		margin: 0 auto;
+
+	}
+}
+
+
+.instrument--container {
+	padding-top: 100px;
+	height: 100%;
+}
+
+.howitworks--header {
+	h6 {
+		font-family: 'Brandon', sans-serif;
+		display: inline;
+		margin-right: 10px;
+		font-size: 25px;
+		//text-transform: uppercase;
+	}
+	img {
+		display: inline-block;
+		width: 50px;
+	}
+}
+
+
+.instrument--desc {
+	margin-top: 75px;
+	font-family: 'Brandon', sans-serif;
+	font-size: 1.2em;
+}
+
+#drums--desc {
+	margin-top: 60px;
+}
+
+.instruments {
+	margin: 0 auto;
+}
+
+.instrument--image {
+	display: block;
+	width: 150px;
+	margin: 0 auto;
+	position: relative;
+	top: 25px;
+}
+
+
+#drums-obj {
+	margin-top: 15px;
+	position: relative;
+	top: 0;
+	transition: all .2s ease-in-out;
+}
+
+#drums-obj:hover {
+	position: relative;
+	animation-name: verticalmove;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform: scale(1.1); 
+}
+
+#conductor-obj {
+	position: relative;
+	left: 0;
+	transition: all .2s ease-in-out;
+}
+
+#conductor-obj:hover {
+	position: relative;
+	animation-name: horizontalmove;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform: scale(1.1); 
+}
+
+#guitar-obj {
+	position: relative;
+	top: 0;
+	right: 0;
+	transition: all .2s ease-in-out;
+}
+
+#guitar-obj:hover {
+	position: relative;
+	animation-name: diagonalmove;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform: scale(1.1);
+}
+
+.footer {
+  position: relative;
+  height: 150px;
+  clear:both;
+  background-color: #610036;
+  padding: 35px 0px 0px 0px;
+  h6 {
+  	text-align: center;
+  	color: white;
+  	font-family: 'Brandon', serif;
+  	margin-bottom: 5px;
+  	font-size: 14px;
+  }
+  .glyphicon {
+  	color: white;
+  }
+  #credits {
+  	position: relative;
+  	bottom: 20px;
+  }
+}

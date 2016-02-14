@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="theme.css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,600,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<title>WatchBand</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-fixed-top hidden-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right nav--container">
+          <li class="nav-text"><a href="#section1" style="color: white;">HOME</a></li>
+          <li class="nav-text"><a href="#section2" style="color: white;">ABOUT</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<div id="container">
+	<div class="main-container" id="section1">
+		<div id="app-title">
+			<h4>WATCH </br> BAND</h4>
+			<span>INTERACTIVE MUSIC JAMMING</span>
+		</div>
+		<img src="Watchband.png" id="watchband-logo"></img>
+		<div id="moving-notes"></div>
+		</div>
+	</div>
+	<div class="container-fluid how-it-works" id="section2">
+		<div class="steps-container">
+			<h1>HOW IT WORKS</h1>
+			<p id="app--desc">WatchBand is a musical adventure through Apple's wearable and product ecosystem. Using Apple Watches, users can strum, drum, and saxophone to the beat of their favorite tunes. With real-time motion tracking of both the Apple Watch and Siri remote, users are truly in control of the musical experience at their fingertips. </br> </br> Hover over the technology to see how to play the different instruments!</p>
+			<div class="row instrument--container">
+			  <div class="col-sm-4 instruments" id="drums">
+			  	<div class="howitworks--header"><h6>Drums</h6><img src="drums.png"></img></div>
+			  	<img src="iwatch.png" class="instrument--image" id="drums-obj"></img>
+			  	<p class="instrument--desc" id="drums--desc">Move the iWatch up and down to play drums.</p>
+			  </div>
+			  <div class="col-sm-4 instruments">
+			  	<div class="howitworks--header"><h6>Conductor</h6><img src="conductor.png"></img></div>
+			  	<img src="iremote.png" class="instrument--image" id="conductor-obj"></img>
+			  	<p class="instrument--desc">Wave the Apple TV to be the conductor.</p>
+			  </div>
+			  <div class="col-sm-4 instruments">
+			  	<div class="howitworks--header"><h6>Guitar</h6><img src="guitar.png"></img></div>
+			  	<img src="iwatch2.png" class="instrument--image" id="guitar-obj"></img>
+			  	<p class="instrument--desc">Strum the iWatch diagonally to jam out on the guitar.</p>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+	<h6>Made with <span class="glyphicon glyphicon-heart"></span></h6></br>
+	<h6 id="credits">Developed by Riley Testut, Michelle Yin, Ratchit Kataria & Maddie McCarthy</h6>
+</footer>
+</body>
+</html>
+
+
+<script>
+$(document).ready(function(){
+
+
+	/*$('.nav.navbar-nav.nav--container li a').hover() {
+		$(this).css("background-color", "transparent");
+	}*/
+
+	$(document).scroll(function(){
+	    if($(this).scrollTop()>=$('#section2').position().top){
+	        $('.nav--container .nav-text a').css("color", "#610036");
+
+	        $('.nav--container .nav-text a').hover(function() {
+			    $( this ).css('color', '#D8007A');
+			  }, function() {
+			    $( this ).css('color', '#610036');
+			  }
+			);
+	    }
+	    if($(this).scrollTop()<=$('#section2').position().top){
+	        $('.nav--container .nav-text a').css("color", "#fff");
+	        $('.nav--container .nav-text a').hover(function() {
+			    $( this ).css('color', '#610036');
+			  }, function() {
+			    $( this ).css('color', '#fff');
+			  }
+			);
+	    }
+	})
+
+  $('body').scrollspy({target: ".navbar", offset: 50});   
+
+  // Add smooth scrolling on all links inside the navbar
+  $("#myNavbar a").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 800, function(){
+   
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+});
+</script>
+
